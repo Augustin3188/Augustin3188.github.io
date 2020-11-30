@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- charset: Đọc bảng mã ký tự -->
+    <meta charset="utf-8" />
+    <!-- name, content, intial scale: Độ lớn thể hiện trên trình duyệt -->
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0 />
+    <title>CSS</title>
+    <!-- Nhúng external CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- internal CSS gán ở mục head
+        Độ ưu tiên: inline CSS > internal CSS > external CSS
+    -->
+    <style>
+        /* Selector -> Ngoặc {} -> key: value
+        Selector gồm có id, class và element (id > class > element)         
+        */
+        p {
+            color: darkmagenta;
+            font-size: 48px;
+        }
+        /* Càng cụ thể thì lệnh sẽ càng được ưu tiên */
+        /*p#welcome {
+            background-color:lightgoldenrodyellow;
+        } */
+        #welcome {
+            background-color: lightsalmon;
+            text-transform: capitalize;
+            text-align: center;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sử dụng inline CSS -->
+    <p style="font-weight: bold; font-size: 24px;" class="underline;" >Hôm nay là ngày 30 tháng 11. Hết tháng rồi. Cũng hết tiền rồi</p>
+    <!-- Sử dụng internal CSS -->
+    <p id="welcome" class="underline">Chào mừng bạn Dũng</p>
+</body>
+
+</html>
+<!--  git (GitBash):
+git --version: kiểm tra version
+ls: liệt kê thư mục
+cd <tên thư mục>: di chuyển vị trí đứng
+    (cd /E)
+cd: quay lại thư mục gốc
+cd ..: quay lại (lùi) 1 cấp
+git init: tạo git repo
+ls -la: liệt kê file ẩn
+git remote add origin: đường dẫn
+git status: kiểm tra trạng thái
+git add .: thêm tất cả các thay đổi
+git commit -m "message cần commit"
+git push origin: master
+--> 
