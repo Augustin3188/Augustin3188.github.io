@@ -45,7 +45,8 @@ a {
     width: 100%;
     flex-direction: row;
     justify-content: flex-end;
-    padding-right: 20px;
+    padding-right: 10px;
+    font-size: 18px;
 }
 
 .avatar {
@@ -63,6 +64,7 @@ a {
     display: flex;
     font-size: 14.4px;
     font-weight: 475;
+    position: relative;
 }
 
 .menu-list a {
@@ -106,7 +108,12 @@ div.absolute {
 
 .carousel-img {
     width: 60%;
-    margin: 0px 20px 0 50px;
+    margin: 0px 20px 0 50px;  
+}
+
+.carousel-img img{
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
 }
 
 .message img {
@@ -122,6 +129,7 @@ div.absolute {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: space-between;
     width: 40%;
     margin-right: 50px;
 }
@@ -130,7 +138,7 @@ div.absolute {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
     background-color: #fff;
-    height: 33%;
+    height: 25%;
 }
 
 .post p {
@@ -142,7 +150,7 @@ div.absolute {
 
 .post img {
     float: left;
-    width: 30%;
+    width: 25%;
     object-fit: cover;
     display: block;
     margin-right: 10px;
@@ -310,4 +318,33 @@ li {
 
 #footer a {
     color: #878889;
+}
+
+.caret-down {
+    font-size: 20px;
+}
+
+/* CSS Menu cấp 2 */
+
+.sub-menu {
+    background-color: gray;
+    position: absolute;
+    bottom: -190px;
+    left: -100px;
+    padding-top: 15px;
+    border-radius: 5px;
+    display: none;
+}
+
+.sub-menu li{
+    padding: 5px 10px;
+    margin-bottom: 5px;
+}
+
+.sub-menu li a {
+    color: #fff;
+}
+
+.menu-list li:hover .sub-menu {
+    display: block;
 }

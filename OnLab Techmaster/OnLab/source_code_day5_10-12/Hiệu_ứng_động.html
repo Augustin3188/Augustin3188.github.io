@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiệu ứng động trong CSS</title>
+    <style>
+        .login {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #0000ff;
+            color: #fff;
+            width: 100px;
+        }
+
+        /* Cách tạo hiệu ứng hover: class:hover */
+        .login:hover {
+            background-color: teal;
+            border-radius: 30px;
+            /* transition: property -> duration -> timing-function -> delay */
+            /*transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: ease-in;
+            transition-delay: 1s;*/
+            transition: all 1.5s ease-in-out 0.05s;
+            opacity: 0.5;
+            transform: scale(1.2);
+        }
+
+        .images {
+            padding: 20px 15px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
+        .img img {
+            width: 450px;
+            margin-bottom: 10px;
+        }
+
+        .img img:hover {
+            transition: all 2.5s ease 0.05s;
+            transform: scale(1.25)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        Login
+    </div>
+    <div class="images">
+
+        <div class="img"><img src="https://tse3.mm.bing.net/th?id=OIP.hQbmTYGNsHljv2byi_UYcAHaHa&pid=Api" alt="img">
+        </div>
+        <div class="img"><img
+                src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/3710973/1160/1160/m1/fpnw/wm1/10891-royalty-free-rf-clipart-illustration-grumpy-cartoon-square-emoticons-with-sadness-expression-vector-illustration-with-yellow-background-.jpg?1512866740&s=948ae6b249c070c1f8bd924a27f771e3"
+                alt="img"></div>
+        <div class="img"><img
+                src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/3686030/1160/1160/m1/fpnw/wm1/10888-royalty-free-rf-clipart-illustration-winking-cartoon-square-emoticons-with-smiling-expression-vector-illustration-with-yellow-background-.jpg?1512420281&s=2b834f617aa545e120cdae2c94eec242"
+                alt="img"></div>
+
+        <div class="img"><img
+                src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/3719328/1160/1160/m1/fpnw/wm1/10895-royalty-free-rf-clipart-illustration-smiling-love-cartoon-square-emoticons-with-hearts-eyes-and-expression-vector-illustration-with-yellow-background-.jpg?1513007146&s=a769c6f7650eee709a37ca47d78a4493"
+                alt="img"></div>
+        <div class="img"><img src="https://tse3.mm.bing.net/th?id=OIP.hW7wOhYNOWbW_PUoQZeMEQHaHa&pid=Api" alt="img">
+        </div>
+        <div class="img"><img
+                src="http://thumb1.shutterstock.com/display_pic_with_logo/507037/598426220/stock-vector-mad-cartoon-square-emoticons-with-crazy-expression-and-protruding-tongue-vector-illustration-with-598426220.jpg"
+                alt="img"></div>
+
+        <div class="img"><img src="https://i.pinimg.com/originals/26/8e/ce/268eceba3530ebd76ae65d40c418aacd.jpg"
+                alt="img"></div>
+        <div class="img"><img src="https://tse3.mm.bing.net/th?id=OIP.50JotzN-_MrqsU7FYxW17wHaHa&pid=Api" alt="img">
+        </div>
+        <div class="img"><img
+                src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/3685805/1160/1160/m1/fpnw/wm1/10886-royalty-free-rf-clipart-illustration-crazy-cartoon-square-emoticons-with-smiling-expression-vector-illustration-with-yellow-background-.jpg?1512418521&s=603daaf4d0313cfd0ce473fbe65f990c"
+                alt="img">
+        </div>
+        <!-- Menu đa cấp -> Trang chủ techmaster.html -->
+    </div>
+</body>
+
+</html>
