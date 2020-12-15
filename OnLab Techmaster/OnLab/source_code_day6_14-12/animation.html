@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        /* Cấu trúc @keyframes:
+            @keyframes {
+            to {}
+            from {}
+        hoặc
+            0%
+            10%
+            20%
+            ...
+            100%
+         */
+        @keyframes move-right {
+            to {
+                width: 500px;
+            }
+
+            from {
+                width: 200px;
+            }
+        }
+
+        @keyframes change-color {
+            0% {
+                background-color: teal;
+            }
+
+            20% {
+                background-color: turquoise;
+            }
+
+            40% {
+                background-color: pink;
+            }
+
+            60% {
+                background-color: plum;
+            }
+
+            80% {
+                background-color: violet;
+            }
+
+            100% {
+                background-color: indigo;
+            }
+        }
+
+        .animation {
+            background-color: teal;
+            width: 200px;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            animation: move-right 2.5s ease-in-out 0.05s infinite alternate;
+            animation: change-color 3s infinite alternate;
+        }
+
+        @keyframes heart-beat {
+            0% {
+                transform: scale(1);
+            }
+
+            20% {
+                transform: scale(1.2)
+            }
+
+            25% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1.2)
+            }
+
+            35% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2)
+            }
+
+            65% {
+                transform: scale(1);
+            }
+
+            80% {
+                transform: scale(1.2)
+            }
+
+            90% {
+                transform: scale(1);
+            }
+        }
+
+        .heart {
+            width: 300px;
+            animation: heart-beat 5s ease-in-out 0.25s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="animation">Animation</p
+    <img src="./1920px-Heart_corazón.svg.png" alt="corazon" class="heart">
+</body>
+
+</html>
