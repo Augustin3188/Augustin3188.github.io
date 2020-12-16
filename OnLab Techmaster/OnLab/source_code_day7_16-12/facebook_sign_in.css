@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+#container {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    margin: 80px;
+    padding: 20px;
+}
+
+.intro {
+    width: 60%;
+    margin: 30px 20px 30px 5px;
+    padding: 20px 20px 20px 5px;
+}
+
+.intro img {
+    width: 300px;
+}
+
+.intro h2 {
+    font-weight: 500;
+    font-size: 24px;
+    padding-left: 30px;
+    margin-top: 0;
+}
+
+.form {
+    width: 35%;
+    height: 330px;
+    margin: 30px 20px 15px 10px;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+#username {
+    width: 90%;
+    height: 35px;
+    padding: 5px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#password {
+    width: 90%;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.sign-in {
+    margin-left: 18px;
+    color: #Fff;
+    background-color: #1877f2;
+    width: 90%;
+    height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding-top: 15px;
+    opacity: 95%;
+  
+}
+
+.sign-in:hover{
+    opacity: 100%;
+}
+
+.sign-in a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+}
+
+.forgot {
+    text-decoration: none;
+    color: #1877f2;
+    font-weight: 600;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+hr {
+    margin: 20px;
+    height: 1px;
+    color: #dfdfdf;
+}
+
+.register {
+    margin-left: 100px;
+    color: #fff;
+    background-color: #38a722;
+    width: 50%;
+    height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding-top: 15px;
+    opacity: 95%;
+}
+
+.register:hover {
+    opacity: 100%;
+}
+
+.register a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+}
+
+.page {
+    width: 40%;
+    text-align: center;
+    color: #000;
+    padding-left: 30px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.page a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.page a:hover {
+    color: #000;
+    text-decoration-color: none;
+    text-decoration: underline;
+}

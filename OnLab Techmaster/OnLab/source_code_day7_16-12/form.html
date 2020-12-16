@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="username">Username: </label>
+        <input id="username" name="username" type="text" placeholder="text here ..." required>
+        <br /><br />
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" placeholder="text here ..." required>
+        <br /><br />
+        <label for="">Gender:</label>
+        <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>
+        <input type="radio" name="gender" id="male" value="male"><label for="male">Male</label>
+        <input type="radio" name="gender" id="other" value="other"><label for="other">Other</label>
+        <br /><br />
+        <label for="">Favorite:</label>
+        <input type="checkbox" name="favorite" id="swim" value="swim"><label for="swim">Swim</label>
+        <input type="checkbox" name="favorite" id="music" value="music"><label for="music">Music</label>
+        <input type="checkbox" name="favorite" id="game" value="game"><label for="game">Game</label>
+        <input type="checkbox" name="favorite" id="book" value="book"><label for="book">Book</label>
+        <br /><br />
+        <label for="">City:</label>
+        <select name="cities" id="cities">
+            <option value="ha-noi">Hà Nội</option>
+            <option value="ha-noi">Tp. Hồ Chí Minh</option>
+            <option value="ha-noi">Huế</option>
+            <option value="ha-noi">Đà Nẵng</option>
+            <option value="ha-noi">Thanh Hoá</option>
+        </select>
+        <br />
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+
+</html>
