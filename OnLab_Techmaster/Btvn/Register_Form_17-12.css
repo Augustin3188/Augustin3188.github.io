@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+#container {
+    background-color: #f0f2f5;
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+}
+
+#form {
+    background-color: #fff;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    border-radius: 20px;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    box-shadow: 15px rgba(0, 0, 0, 1);
+}
+
+.title h1 {
+    display: inline;
+}
+
+.title p {
+    color: #a38f96;
+    font-weight: 450px;
+    font-size: 20px;
+}
+
+.title img {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+hr {
+    height: 1px;
+    color: #dfdfdf;
+}
+
+.content {
+    font-size: 18px;
+}
+
+.username {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#username {
+    width: 41%;
+    height: 35px;
+    margin: 15px;
+    padding: 8px;
+    background-color: #f5f6f7;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.sdd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#sdd {
+    width: 90%;
+    height: 35px;
+    margin: 10px;
+    padding: 8px;
+    background-color: #f5f6f7;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.password {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#password {
+    width: 90%;
+    height: 35px;
+    margin: 10px;
+    padding: 8px;
+    background-color: #f5f6f7;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.content p {
+    font-size: 14px;
+    color: #a38f96;
+}
+
+p img {
+    width: 12px;
+    color: #a38f96;
+}
+
+.birthday {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#birthday {
+    width: 27%;
+    height: 35px;
+    margin: 10px;
+    padding: 8px;
+    background-color: #f5f6f7;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+#birthmonth {
+    width: 27%;
+    height: 35px;
+    margin: 10px;
+    padding: 8px;
+    background-color: #f5f6f7;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+#birthyear {
+    width: 27%;
+    height: 35px;
+    margin: 10px;
+    padding: 8px;
+    background-color: #f5f6f7;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+#gioi_tinh {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.gioi_tinh {
+    width: 27%;
+    height: 35px;
+    margin: 10px;
+    padding: 8px;
+    background-color: #f5f6f7;
+    border: solid #ccd0d5;
+    border-width: 1px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#radio {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.plink {
+    font-size: 10px;
+}
+
+p a {
+    text-decoration: none;
+    color: #3d98d3;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+#submit {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background-color: #38a722;
+    width: 50%;
+    height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: auto;
+}
+
+.submit {
+    color: #fff;
+    background-color: #38a722;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+}
