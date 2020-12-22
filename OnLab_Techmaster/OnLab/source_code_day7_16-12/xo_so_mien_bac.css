@@ -9,8 +9,80 @@ body {
 
 #container {
     width: 80%;
-    height: 100vh;
-    margin: 50px;
+    margin: auto;
+    background-color: #fff;
+    text-align: center;
+}
+
+table, th, td {
+    padding: 10px;
+    border-collapse: collapse;
+    border: none;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(6) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(7) {
     background-color: #fff;
 }
 
+tr:nth-child(8) {
+    background-color: #f9f9f9;
+}
+
+.title {
+    text-align: start;
+}
+
+table {
+    width: 100%;
+    border-style: solid;
+    border-color: #e2e2e2;
+}
+
+td a {
+    text-decoration: none;
+    color: #a01c22;
+}
+
+thead .tr1 {
+    background-color: #ca0814;
+    color: #fff;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+#start {
+    color: #000;
+    font-weight: 550;
+    font-size: 20px;
+    border-style: solid;
+    border-color: #e2e2e2;
+}
+
+tbody td {
+    font-size: 40px;
+    font-weight: 600;
+    border: none;
+    border-bottom: solid #e2e2e2;
+}
+
+#blue {
+    color: #2e31df;
+    font-size: 30px;
+}
+
+#red {
+    color: #f11226;
+    font-size: 50px;
+}
+
+#row2 {
+    border-bottom: none;
+}
