@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods</title>
+</head>
+
+<body>
+
+
+    <script>
+        // Chữa btvn
+        function charAscArr(arr) {
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        console.log(charAscArr([1, 2, 2, 4, 3]))
+
+        // =========
+        function practice07(arr) {
+            let newArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                newArr.push(arr[i] % 2)
+            }
+            return newArr
+        }
+        console.log(practice07([1, 2, 2, 4, 3]))
+
+        // Cách 2
+        function practice07(arr) {
+            return arr.map(ele => ele % 2);
+        }
+        console.log(practice07([1, 2, 2, 4, 3]))
+        // =========
+        function repeatString(str) {
+            return str.repeat(10)
+        }
+        console.log(repeatString(`abc`))
+
+        // =======
+        function findMax(a) {
+            let Max = a[0]
+            for (let i = 0; i < a.length; i = i + 1) {
+                if (a[i] > Max) {
+                    Max = a[i];
+                }
+            }
+            return Max
+        }
+        console.log(findMax([1, 2, -5, 4, 8]))
+
+        // ========
+        let maxArr = [1, 2, 13, -4, 8]
+        function findMax_1(a) {
+            return Math.max(...a) //Dấu ... tách array thành 1 danh sách số
+        }
+        console.log(findMax_1(maxArr))
+
+        //======================================================================================================= 
+        // METHODS
+        let arr = [1, 2, 3, 4];
+        let pop = arr.pop();
+        // Kết quả khi console.log method pop: GIÁ TRỊ BỊ XÓA
+        console.log(pop);
+        console.log(arr);
+
+        let push = arr.push(10);
+        // Kết quả khi console.log method pop: ĐỘ DÀI MẢNG MỚI SAU KHI THÊM
+        console.log(push);
+        console.log(arr);
+
+        // REVERSE Đảo ngược thứ tự mảng
+        let reverse = arr.reverse();
+        console.log(reverse);
+
+        // SLICE Tách từ mảng ra mảng mới
+        // Với slice(a,b): a=vị trí bắt đầu, b=vị trí kết thúc(ko lấy b)
+        // Nếu chỉ lấy 1 tham số => tách từ vị trí bắt đầu a đến cuối mảng
+        // Ko truyền tham số => lấy toàn bộ mảng
+        console.log(arr.slice(0, 3));
+        console.log(arr.slice(1));
+        console.log(arr.slice());
+
+        // indexOf Kiểm tra 1 phần tử có nằm trong mảng hay không
+        // Nếu có => trả về vị trí của phần tử đầu tiên trong mảng
+        // Nếu không có => trả về -1
+        arr.push(3);
+        console.log(arr)
+        console.log(arr.indexOf(3));
+        console.log(arr.indexOf(4));
+
+        // lastIndexOf: trả về vị trí của phần tử cuối cùng trong mảng
+        console.log(arr.lastIndexOf(3));
+
+        // JOIN chuyển từ mảng thành chuỗi
+        // join() với phần trong ngoặc (là kí tự ngăn cách giữa các phần tử của chuỗi)
+        console.log(arr.join(", "));
+
+        // Bài tập:
+        // 4. Kiểm tra giá trị trong mảng
+        function checkArr(arr, x) {
+            let a = arr.indexOf(x);
+            if (a == -1) {
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        console.log(checkArr([10, 3, 5, 6], 5))
+
+        // 1. Viết hàm tìm ra số lớn thứ nhì trong mảng các số
+        let arrMax = [1, 8, -5, 7, 8, 4, 0, 8]
+        function findMax(a) {
+            let Max = a[0]
+            for (let i = 0; i < a.length; i = i + 1) {
+                if (a[i] > Max) {
+                    Max = a[i];
+                }
+            }
+            for (let i = 0; i < a.length; i = i + 1) {
+
+                if (a[i] == Max) {
+                    a.splice(i, 1)
+                }
+            }
+            let Max2 = a[0]
+            for (let i = 0; i < a.length; i = i + 1) {
+                if (a[i] > Max2) {
+                    Max2 = a[i];
+                }
+            }
+            return Max2;
+        }
+        console.log(findMax(arrMax))
+
+        // 2.Lấy phần tử ngẫu nhiên từ một mảng
+        // Math.random() * array.length
+        function randomArr(a) {
+            // a[Math.random() * a.length]
+            let result = a[Math.round((Math.random() * a.length))]
+            return result
+        }
+        console.log(randomArr([1, 2, 3, 5]))
+        console.log(randomArr([1, 2, 3, 5]))
+        console.log(randomArr([1, 2, 3, 5]))
+        console.log(randomArr([1, 2, 3, 5]))
+        console.log(randomArr([1, 2, 3, 5]))
+
+        // 3. Viết hàm lọc ra chuỗi có giá trị dài nhất
+        // Tìm Length dài nhất => Tìm các string có length dài nhất => Viết các string
+        function stringLength(a) {
+            let maxLength = a[0].length;
+            let newString = []
+            for (i = 0; i < a.length; i = i + 1) {
+                if (a[i].length > maxLength) {
+                    maxLength = a[i].length;
+                }
+            }
+            for (i = 0; i < a.length; i = i + 1) {
+                if (a[i].length == maxLength) {
+                    newString.push(a[i])
+                }
+            }
+            return newString
+        }
+        console.log(stringLength([`a`, `abc`, `ab`, `xyz`]))
+    </script>
+</body>
+
+</html>

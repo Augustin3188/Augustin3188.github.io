@@ -311,21 +311,21 @@
 
         // Đối-tượng.phương-thức: chỉnh sửa array
 
-        // Thêm phần tử vào cuối mảng
+        // PUSH Thêm phần tử vào cuối mảng
         number1.push(5);
         console.log(number1)
-        // Xóa phần tử ở cuối mảng
+        // POP Xóa phần tử ở cuối mảng
         number1.pop();
         console.log(number1)
 
-        // Thêm phần tử vào đầu mảng
+        // UNSHIFT Thêm phần tử vào đầu mảng
         number1.unshift(0)
         console.log(number1)
-        // Xóa phần tử ở đầu mảng
+        // SHIFT Xóa phần tử ở đầu mảng
         number1.shift();
         console.log(number1)
 
-        // splice (a, b, c, c1, c2, ..., cn) với a: Vị trí bắt đầu xóa; b: Số phần tử cần xóa; c: Giá trị thay thế
+        // SPLICE (a, b, c, c1, c2, ..., cn) với a: Vị trí bắt đầu xóa; b: Số phần tử cần xóa; c: Giá trị thay thế
         // Xóa ở vị trí bất kì
         number1.splice(1, 1);
         console.log(number1)
@@ -333,7 +333,7 @@
         number1.splice(0, 0, 10, 11, 12);
         console.log(number1)
 
-        // Cộng mảng (dùng arr1.concat(arr2))
+        // CONCAT Cộng mảng (dùng arr1.concat(arr2))
         let number2 = [3, 2, 1];
         let number3 = number1.concat(number2);
         console.log(number3)
