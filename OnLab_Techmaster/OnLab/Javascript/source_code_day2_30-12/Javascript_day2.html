@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // Dữ liệu boolean (true/false)
+        // let a = true;
+        // console.log(a)
+
+        // let b = false;
+        // console.log(b)
+
+        // !a : phủ định của a
+        // console.log(!a)
+        // console.log(!!a)
+
+        // let c = 5;
+        // console.log(Boolean(c))
+        // let d = 5 < 4;
+        // console.log(Boolean(d))
+
+        console.log(Boolean(0))
+        console.log(Boolean(""))
+        // Falsy value: false, NaN, 0, "", null, undefined
+        // Truthy value: các giá trị còn lại
+
+        console.log(true && true) // -> true
+        console.log(true && false) // -> false
+        console.log(false && false) // -> false
+
+        console.log(true || true) // ||: hoặc; -> true
+        console.log(true || false) // -> true
+        console.log(false || false) // -> false
+
+        // =======================================================
+        // Câu lệnh điều kiện
+        // if (điều kiện) {
+        // câu lệnh
+        // }
+        // else (!điều kiện)
+
+        // else if: (điều kiện 2)
+        let a = 0;
+        if (a > 0) {
+            console.log(`Số dương`)
+        }
+        else if (a == 0) {
+            console.log(`Số 0`)
+        }
+        else {
+            console.log(`Số âm`)
+        }
+        // Biểu thức đk -> ?- Đúng -> :- Sai
+        a > 0 ? console.log(`Số dương`) : console.log(`Số âm`)
+
+        // 1. điểm
+        function markGrade(mark) {
+            let result = mark;
+            return result
+        }
+        let mark = markGrade(49)
+        if (mark >= 85) {
+            console.log(`A`)
+        }
+        else if (70 <= mark && mark < 85) {
+            console.log('B')
+        }
+        else if (40 <= mark && mark < 70) {
+            console.log(`C`)
+        }
+        else {
+            console.log(`D`)
+        }
+
+        // 2. số lớn hơn
+        function greater(c, d) {
+            let result = c - d;
+            return result
+        }
+
+        // let c = greater(8, 4)
+
+        // if (c < 0) {
+        //     console.log(`c nhỏ hơn d`)
+        // }
+        // else {
+        //     console.log()
+        // }
+
+        // 3. số âm, dương, 0
+        function integer(x) {
+            let result = x;
+            return result
+        }
+        let e = integer(0)
+        if (e > 0) {
+            console.log(`Số dương`)
+        }
+        else if (e == 0) {
+            console.log(`Số 0`)
+        }
+        else {
+            console.log(`Số âm`)
+        }
+
+        // 4. Số chẵn/lẻ
+        function odd(x) {
+            let result = x % 2;
+            return result
+        }
+        let f = odd(0);
+        if (f == 0) {
+            console.log("Số chẵn")
+        }
+        else {
+            console.log("Số lẻ")
+        }
+
+        // 5. Số chia hết cho 3 và 5
+        function divide3And5(x) {
+            let result = x % 15;
+            return result
+        }
+        let g = divide3And5(0);
+        if (g == 0) {
+            console.log('Số đồng thời chia hết cho 3 và 5')
+        }
+        else {
+            console.log(`Số không đồng thời chia hết cho 3 và 5`)
+        }
+
+        // 6. c = a + b?
+        function sum(a, b, c) {
+            if (a + b == c) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        let h = sum(1, 3, 4);
+        console.log(h)
+
+        // =======================
+        // Câu lệnh switch-case: Chia điều kiện và thực hiện hành động
+        // Nên có case default; mỗi case phải có break
+        let num = 6;
+        switch (num) {
+            case 1:
+                console.log("Một");
+                break
+            case 2:
+                console.log("Hai");
+                break
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                console.log("Ba");
+                break
+            default:
+                console.log("Không tìm thấy");
+                break
+        }
+
+        // Các ngày trong tuần
+        let day = 0;
+        switch (day) {
+            default:
+                console.log("x");
+                break
+            case 0:
+                console.log("Hôm nay là Chủ Nhật");
+                break
+            case 1:
+                console.log("Hôm nay là Thứ 2")
+            case 2:
+                console.log("Hôm nay là Thứ 3")
+            case 3:
+                console.log("Hôm nay là Thứ 4")
+            case 4:
+                console.log("Hôm nay là Thứ 5")
+            case 5:
+                console.log("Hôm nay là Thứ 6")
+            case 6:
+                console.log("Hôm nay là Thứ 7")
+        }
+
+        // Các tháng trong năm
+        let month = 8;
+        switch (month) {
+            default:
+                console.log("x");
+                break
+            case 1:
+            case 2:
+            case 3:
+                console.log("Mùa xuân");
+                break
+            case 4:
+            case 5:
+            case 6:
+                console.log("Mùa hạ");
+                break
+            case 7:
+            case 8:
+            case 9:
+                console.log("Mùa thu");
+                break
+            case 10:
+            case 11:
+            case 12:
+                console.log("Mùa đông");
+                break
+        }
+
+        // Vòng lặp: Dùng cho code lặp đi lặp lại 1 số lần nhất định
+        // 1 số loại vòng lặp: For, While, Dowhile,...
+        // Cú pháp: for (biến-khởi-tạo; điều-kiện-thực-thi; bước-nhảy) {câu lệnh}
+        // Biến khởi tạo: gtri khởi tạo ban đầu của vòng lặp
+        // Điều kiện thực thi: đk mà vòng lặp được phép chạy
+        // Bước nhảy: khoảng đệm nhảy của mỗi vòng lặp
+        // Đk thực thi false -> Kết thúc vòng lặp
+
+        for (let i = 1; i < 11; i++) // (i=i+1) 
+        {
+            if (i % 2 == 1) {
+                continue
+            }
+            console.log(i)
+        }
+
+        // for (let i = 1; i < 11; i++) // (i=i+1) 
+        // {
+        //     if (i % 2 == 1) {
+        //         break
+        //     }
+        //     console.log(i)
+        // }
+
+        let sum1 = 0;
+        for (let i = 1; i < 11; i = i + 1) {
+            sum1 = sum1 + i
+        }
+        console.log(sum1)
+
+        let sum2 = 0;
+        for (let i = 1; i < 11; i = i + 1) {
+            if (i % 2 == 0) {
+                sum2 = sum2 + i;
+            }
+        }
+        console.log(sum2)
+
+        let sum3 = 0;
+        for (let i = 2; i < 11; i = i + 2) {
+            sum3 = sum3 + i;
+        }
+        console.log(sum3)
+
+        // 1. tổng số lẻ 1 -> 100
+        let sumOdd = 0;
+        for (let i = 1; i < 101; i = i + 2) {
+            sumOdd = sumOdd + i;
+        }
+        console.log(sumOdd)
+
+        // 2. tổng các số chia hết cho 3 và 5 trong khoảng từ 0 -> 100;
+        let sum3_5 = 0;
+        for (let i = 0; i < 101; i = i + 1) {
+            if (i % 15 == 0) {
+                sum3_5 = sum3_5 + i;
+            }
+        }
+        console.log(sum3_5)
+
+        // 3. Vòng lặp từ 0->20 --> số chẵn/lẻ
+        for (let i = 0; i < 21; i = i + 1) {
+            if (i % 2 == 0) {
+                console.log(`${i} là số chẵn`)
+            }
+            else {
+                console.log(`${i} là số lẻ`)
+            }
+        }
+
+        // =================================
+        // Array: Mảng lưu trữ nhiều phần tử với dữ liệu khác nhau
+        // let arr = [value1, value2, value 3,...]
+        let number = [1, 2, 3, 4, 5, 6, 7, "Hà Nội", true, false];
+        // Chỉ số bắt đầu từ 0, kết thúc bằng length - 1
+        console.log(number, length); // -> xác định length của array
+        console.log(number[7]); // -> lấy ra phần tử "Hà Nội"
+
+        number[7] = "Hải phòng" // -> gán giá trị vào vị trí 
+        console.log(number);
+
+        // number[number.length - 1]: chỉ số phần tử cuối cùng (alt)
+        console.log(number[number.length - 1]);
+
+        let number1 = [1, 2, 3, 4];
+        console.log(number1)
+
+        // Đối-tượng.phương-thức: chỉnh sửa array
+
+        // Thêm phần tử vào cuối mảng
+        number1.push(5);
+        console.log(number1)
+        // Xóa phần tử ở cuối mảng
+        number1.pop();
+        console.log(number1)
+
+        // Thêm phần tử vào đầu mảng
+        number1.unshift(0)
+        console.log(number1)
+        // Xóa phần tử ở đầu mảng
+        number1.shift();
+        console.log(number1)
+
+        // splice (a, b, c, c1, c2, ..., cn) với a: Vị trí bắt đầu xóa; b: Số phần tử cần xóa; c: Giá trị thay thế
+        // Xóa ở vị trí bất kì
+        number1.splice(1, 1);
+        console.log(number1)
+        // Thêm ở vị trí bất kì
+        number1.splice(0, 0, 10, 11, 12);
+        console.log(number1)
+
+        // Cộng mảng (dùng arr1.concat(arr2))
+        let number2 = [3, 2, 1];
+        let number3 = number1.concat(number2);
+        console.log(number3)
+
+        // Duyệt mảng -> dùng vòng lặp
+        let sum4 = 0
+        for (let i = 0; i < number1.length; i++) {
+            // console.log(number1[i]);
+            sum4 = sum4 + number1[i]
+        }
+        console.log(sum4)
+    </script>
+</body>
+
+</html>

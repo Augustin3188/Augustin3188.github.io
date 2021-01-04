@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./prism.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #464646;
+        }
+
+        .container {
+            width: 75%;
+            margin: auto;
+        }
+
+        .box {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p>Công thức chuyển đổi phút sang giờ</p>
+            <pre>
+                <code class="language-javascript">
+                    function convertMinute(x = 60) {
+                        let result = Math.floor(x / 60);
+                        return result
+                }
+                    function convertMinuteresidual(x = 60) {
+                        let result = x % 60;
+                        return result
+                }
+                    let d = convertMinute(888);
+                    let e = convertMinuteresidual(888)
+                    console.log(`${d} giờ ${e} phút`)
+                </code>
+            </pre>
+        </div>
+        <div class="box">
+            <p>Công thức tính BMI</p>
+            <pre>
+                <code class="language-javascript">
+                    function BMI(w = 50, h = 1.6) {
+                        let result = w / (h ** 2)
+                        return result
+                    }
+                    let h = BMI(66, 1.7)
+                    console.log(`BMI = ${Math.round(h * 100) / 100}`)
+                </code>
+            </pre>
+        </div>
+    </div>
+    <script src="./prism.js">
+    </script>
+    <script>
+        function convertMinute(x = 60) {
+            let result = Math.floor(x / 60);
+            return result
+        }
+        function convertMinuteresidual(x = 60) {
+            let result = x % 60;
+            return result
+        }
+        let d = convertMinute(1349);
+        let e = convertMinuteresidual(1389)
+        console.log(`${d} giờ ${e} phút`)
+    </script>
+</body>
+
+</html>
