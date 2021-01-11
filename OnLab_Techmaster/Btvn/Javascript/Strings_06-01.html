@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+</head>
+
+<body>
+
+    <script>
+        // 1. Kiểm tra chuỗi có nằm trong chuỗi còn lại không
+        // function điền 2 chuỗi => include
+        function checkString(a, b) {
+            return a.includes(b)
+        }
+        console.log("Bài 1")
+        console.log(checkString("abcdefgh", "ab"))
+        console.log(checkString("abcdefgh", "ag"))
+
+        // 2. Rút ngắn chuỗi; thêm ... ở cuối chuỗi
+        // function điền 1 chuỗi => slice => concat
+        function shortenString(a) {
+            if (a.length > 8) {
+                let b = (a.slice(0, 8))
+                return b.concat("...")
+            }
+            else {
+                return a
+            }
+        }
+        console.log("Bài 2")
+        console.log(shortenString("Xin chào các bạn"))
+        console.log(shortenString("Hello"))
+
+        // 3. Chuyển chuỗi thành viết hoa ký tự đầu tiên
+        // Lowercase => Đổi string thành array với dấu " " => chọn ký tự vị trí 0 của string trong array => Uppercase => Quay về string
+        function capitalizeString(a) {
+            let a1 = a.toLowerCase().split(" ");
+            for (let i = 0; i < a1.length; i = i + 1) {
+                a1[i] = a1[i].charAt(0).toUpperCase() + a1[i].slice(1);
+            }
+            return a1.join(" ")
+        }
+        console.log("Bài 3")
+        console.log(capitalizeString("chÀo MừnG đẾn với techMaster"))
+
+        // 4. Viết function sao chép chuỗi n lần, ngăn cách = dấu gạch ngang
+        // function điền chuỗi + số lần sao chép =>
+        let repeatString = ""
+        function repeatStrings(str, n) {
+            for (i = 0; i < n; i = i + 1) {
+                repeatString = repeatString + `-${str}`
+            }
+            return repeatString.slice(1)
+        }
+        console.log("Bài 4")
+        console.log(repeatStrings("Techmaster", 6))
+
+        // 5. Đảo ngược string 
+        function reverseString(a) {
+            let b = a.split("").reverse();
+            return b.join("")
+        }
+        console.log("Bài 5")
+        console.log(reverseString('Hello'))
+
+        // 6. Chuỗi đối xứng
+        // Đảo ngược chuỗi => xóa dấu cách "" => kiểm tra mảng gốc và reverse
+        function palindrome(a) {
+            let x = a.toLowerCase().split("");
+            for (i = 0; i < a.length; i = i + 1) {
+                if (x[i] == " ") {
+                    x.splice(i, 1)
+                }
+            }
+            for (i = 0; i < a.length; i = i + 1) {
+                if (x[i] == x.reverse()[i]) {
+                    continue
+                }
+                else if (x[i] != x.reverse()[i]) {
+                    return false
+                }
+            }
+            return true
+        }
+        console.log("Bài 6")
+        console.log(palindrome('race car'));
+        console.log(palindrome('Was it a car or a cat I saw'))
+        console.log(palindrome('hello world'))
+
+        // 7. Đếm số nguyên âm
+        function countVowel(a) {
+            let vowelNum = 0
+            for (i = 0; i < a.length; i = i + 1) {
+                if (a[i] == 'a' || a[i] == 'e' || a[i] == 'o' || a[i] == 'i' || a[i] == 'u') {
+                    vowelNum = vowelNum + 1
+                }
+            }
+            return vowelNum
+        }
+        console.log("Bài 7")
+        console.log(countVowel('hello world'))
+        console.log(countVowel('qwrtsd'))
+
+        // 8. Kiểm tra kết thúc của chuỗi
+        // function điền 2 chuỗi => chọn length chuỗi 2 -> slice chuỗi 1 => check chuỗi 1 == chuỗi 2? 
+        function arrayEnding(arr1, arr2) {
+            let b = arr1.slice(arr1.length - arr2.length)
+            if (b != arr2) {
+                return false
+            }
+            return true
+        }
+        console.log("Bài 8")
+        console.log(arrayEnding("hello", "lo"))
+        console.log(arrayEnding("goodbye", "bya"))
+
+        // 9. Lấy chữ cái đầu tiên 
+        // String thành array " "=> slice(0)
+        function firstLetter(a) {
+            let b = a.split(" ");
+            for (let i = 0; i < b.length; i = i + 1) {
+                b[i] = b[i].slice(0, 1);
+            }
+            return b.join(" ")
+        }
+        console.log("Bài 9")
+        console.log(firstLetter('hello world'))
+        console.log(firstLetter('Bài tập về nhà'))
+
+        // 10. Sắp xếp theo thứ tự bảng chữ cái (phân biệt chữ Hoa - thường)
+        // đổi sang array => chia 2 Uppercase và Lowercase => concat 2 mảng đã sort => xóa " " và đổi về string 
+        function alphabetArrange(a) {
+            let b = a.split("");
+            let newArr1 = [];
+            let newArr2 = [];
+            for (i = 0; i < a.length; i = i + 1) {
+                if (b[i] == b[i].toUpperCase()) {
+                    newArr1.push(b[i])
+                }
+            }
+            for (i = 0; i < a.length; i = i + 1) {
+                if (b[i] == b[i].toLowerCase()) {
+                    newArr2.push(b[i])
+                }
+            }
+            let newArr3 = newArr1.sort().concat(newArr2.sort())
+            for (i = 0; i < newArr3.length; i = i + 1) {
+                if (newArr3[i] == " ") {
+                    newArr3.splice(i, 1)
+                }
+            }
+            let result = newArr3.join("")
+            return result
+        }
+        console.log("Bài 10")
+        console.log(alphabetArrange("HellO WorLd"))
+        // 11. Ký tự không bị lặp
+        // Đổi thành array => xóa " " => tìm kí tự ko bị lặp => đổi thành string
+        function removeDuplicate(a) {
+            let b = a.split("");
+            let newArr = [];
+            for (let i = 0; i < a.length; i = i + 1) {
+                if (b[i] == " ") {
+                    b.splice(i, 1)
+                }
+                if (b.indexOf(b[i]) == b.lastIndexOf(b[i])) {
+                    newArr.push(b[i])
+                }
+            }
+            let result = newArr.join("")
+            if (result.length > 1) {
+                result = newArr.join(", ")
+            }
+            return result
+        }
+        console.log("Bài 11")
+        console.log(removeDuplicate("abcd abcde"))
+    </script>
+</body>
+
+</html>
