@@ -75,6 +75,7 @@
                     x.splice(i, 1)
                 }
             }
+            // !!!CÁCH LOẠI BỎ KHOẢNG TRỐNG: Str.split(" ").join("")!!!
             for (i = 0; i < a.length; i = i + 1) {
                 if (x[i] == x.reverse()[i]) {
                     continue
@@ -113,6 +114,8 @@
             }
             return true
         }
+        // Dùng .endsWith() 
+        // Kiểm tra bắt đầu: .startsWith()
         console.log("Bài 8")
         console.log(arrayEnding("hello", "lo"))
         console.log(arrayEnding("goodbye", "bya"))

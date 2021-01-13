@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 1. Tính thể tích hình cầu
+        function sphereVolume(r) {
+            return Math.round(((4 / 3) * Math.PI * (r ** 3)) * 100) / 100
+        }
+        console.log("Bài 1")
+        console.log(sphereVolume(1))
+        console.log(sphereVolume(2))
+
+        // 2. Tính tổng các số nguyên giữa 2 số 
+        function sum(a, b) {
+            let sum = 0
+            if (a == b) {
+                return 0
+            }
+            else if (a < b) {
+                sum = ((a + 1) + (b - 1)) / 2 * ((b - 1) - (a + 1) + 1)
+            }
+            else {
+                sum = ((b + 1) + (a - 1)) / 2 * ((a - 1) - (b + 1) + 1)
+            }
+            return sum
+        }
+        console.log("Bài 2")
+        console.log(sum(3, 3))
+        console.log(sum(3, 8))
+        console.log(sum(8, 3))
+
+        // 3. Kiểm tra số nguyên tố
+        // số nguyên dương > 2 => không chia hết cho các số từ 2 đến a - 1
+        function primeNumber(a) {
+            if (Number.isInteger(a) == false || a < 2) {
+                return false
+            }
+            else if (a == 2) {
+                return true
+            }
+            for (let i = 2; i < a; i = i + 1) {
+                if (a % i == 0) {
+                    return false
+                }
+                else {
+                    return true
+                }
+            }
+        }
+        console.log("Bài 3")
+        console.log(primeNumber(2))
+        console.log(primeNumber(-3))
+        console.log(primeNumber(16))
+        console.log(primeNumber(113))
+
+        // 4. Tính tổng số nguyên tố nhỏ hơn 1 số
+        function primeSum(a) {
+            let sum = 0
+            for (let i = 2; i < a + 1; i = i + 1) {
+                if (primeNumber(i) == true) {
+                    sum = sum + i
+                }
+            }
+            return sum
+        }
+        console.log("Bài 4")
+        console.log(primeSum(-1))
+        console.log(primeSum(2))
+        console.log(primeSum(20))
+
+        // 5. Tính tổng các ước
+        function divisorsSum(a) {
+            let divisorSum = 0
+            for (let i = 1; i < a + 1; i = i + 1) {
+                if (a % i == 0) {
+                    divisorSum = divisorSum + i
+                }
+            }
+            return divisorSum
+        }
+        console.log("Bài 5")
+        console.log(divisorsSum(4))
+        console.log(divisorsSum(20))
+        console.log(divisorsSum(19))
+
+        // 6. Sắp xếp chữ số sao cho tạo ra số nhỏ nhất
+        // chuyển thành mảng =>  
+        // function findMin(a) {
+        //     let min = a[0]
+        //     for (let i = 0; i < a.length; i = i + 1) {
+        //         if (a[i] < min) {
+        //             min = a[i];
+        //         }
+        //     }
+        //     return min
+        // }
+        // function arrangeAscendingNumber(a) {
+        //     a = (a + "").split("")
+        //     let x = 1
+        //     let newArr = []
+        //     for (let i = 0; i < a.length; i = i + 1) {
+        //         // if (a[i] > a[i + 1]) {
+        //         //     [a[i], a[i + 1]] = [a[i + 1], a[i]]
+        //         // }
+        //         newArr.push(findMin(a))
+        //         if (a[i] == findMin(a)) {
+        //             a.splice(i, 1)
+        //             console.log(newArr)
+        //         }
+        //     }
+        //     console.log(a)
+        // }
+        // console.log("Bài 6")
+        // console.log(arrangeAscendingNumber(10205784))
+
+        // 7. Tính thời gian kể từ 1 thời điểm
+        // Điền 2 tham số => chia lấy dư: giây -> giờ: % 3600; giây -> phút: % 60
+        // nếu phút/giây > 59 -> +1
+        // function timeCount(str, x) {
+        //     str = str.split(":")
+        //     let a = str[0] - ""
+        //     let b = str[1] - "" + Math.floor((x / 60))
+        //     let c = str[2] - "" + (x % 60)
+        //     console.log(str)
+        //     console.log(a)
+        //     console.log(b)
+        //     console.log(c)
+        //     let i = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        //     if (c = 60 * i) {
+        //         c = 0
+        //         b = b + 1
+        //     }
+        //     if (b > 59) {
+        //         a = a + 1
+        //     }
+        // }
+        // console.log("Bài 7")
+        // console.log(timeCount("21:50:48", 800))
+    </script>
+</body>
+
+</html>
