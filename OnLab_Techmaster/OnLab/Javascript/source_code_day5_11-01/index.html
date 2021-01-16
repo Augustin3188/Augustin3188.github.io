@@ -92,58 +92,46 @@
         console.log(divisorsSum(19))
 
         // 6. Sắp xếp chữ số sao cho tạo ra số nhỏ nhất
-        // chuyển thành mảng =>  
-        // function findMin(a) {
-        //     let min = a[0]
-        //     for (let i = 0; i < a.length; i = i + 1) {
-        //         if (a[i] < min) {
-        //             min = a[i];
-        //         }
-        //     }
-        //     return min
-        // }
-        // function arrangeAscendingNumber(a) {
-        //     a = (a + "").split("")
-        //     let x = 1
-        //     let newArr = []
-        //     for (let i = 0; i < a.length; i = i + 1) {
-        //         // if (a[i] > a[i + 1]) {
-        //         //     [a[i], a[i + 1]] = [a[i + 1], a[i]]
-        //         // }
-        //         newArr.push(findMin(a))
-        //         if (a[i] == findMin(a)) {
-        //             a.splice(i, 1)
-        //             console.log(newArr)
-        //         }
-        //     }
-        //     console.log(a)
-        // }
-        // console.log("Bài 6")
-        // console.log(arrangeAscendingNumber(10205784))
+        // CHỮA
+        function arrangeAscendingNumber(a) {
+            a = (a + "").split("")
+            let b = (a.sort())
+            for (let i = 0; i < b.length; i = i + 1) {
+                if (b[i] != 0) {
+                    b[0] = a[i];
+                    b[i] = 0;
+                    break;
+                }
+            }
+            return b.join("") * 1
+        }
+        console.log("Bài 6")
+        console.log(arrangeAscendingNumber(10205784))
+        console.log(arrangeAscendingNumber(7629510))
+        console.log(arrangeAscendingNumber(813200530))
 
         // 7. Tính thời gian kể từ 1 thời điểm
-        // Điền 2 tham số => chia lấy dư: giây -> giờ: % 3600; giây -> phút: % 60
-        // nếu phút/giây > 59 -> +1
-        // function timeCount(str, x) {
-        //     str = str.split(":")
-        //     let a = str[0] - ""
-        //     let b = str[1] - "" + Math.floor((x / 60))
-        //     let c = str[2] - "" + (x % 60)
-        //     console.log(str)
-        //     console.log(a)
-        //     console.log(b)
-        //     console.log(c)
-        //     let i = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-        //     if (c = 60 * i) {
-        //         c = 0
-        //         b = b + 1
-        //     }
-        //     if (b > 59) {
-        //         a = a + 1
-        //     }
-        // }
-        // console.log("Bài 7")
-        // console.log(timeCount("21:50:48", 800))
+        // CHỮA
+        // Điền 2 tham số => tách thành giây => chia lấy dư: giây -> giờ: % 3600; giây -> phút: % 60
+        function toSeconds(str) {
+            str = str.split(":")
+            let totalSeconds = (str[0] * 3600) + (str[1] * 60) + str[2] * 1
+            return totalSeconds
+        }
+        function timeCount(str, x) {
+            let timeAfter = toSeconds(str) + x;
+            let hour = (Math.floor(timeAfter / 3600))
+            let minute = (Math.floor((timeAfter % 3600) / 60))
+            let second = ((timeAfter % 3600) % 60)
+            if (hour == 24) {
+                hour = 0
+            }
+            return `${hour}:${minute}:${second}`
+        }
+        console.log("Bài 7")
+        console.log(timeCount("3:10:48", 800))
+        console.log(timeCount("16:25:37", 560))
+        console.log(timeCount("23:59:50", 1000))
     </script>
 </body>
 
