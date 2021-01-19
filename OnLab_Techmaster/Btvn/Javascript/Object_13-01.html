@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+
+<body>
+
+    <script>
+        // Bài tập
+        // OBJECT
+        let grades = [
+            { name: 'John', grade: 8, sex: 'M' },
+            { name: 'Sarah', grade: 12, sex: 'F' },
+            { name: 'Bob', grade: 16, sex: 'M' },
+            { name: 'Johnny', grade: 2, sex: 'M' },
+            { name: 'Ethan', grade: 4, sex: 'M' },
+            { name: 'Paula', grade: 18, sex: 'F' },
+            { name: 'Donald', grade: 5, sex: 'M' },
+            { name: 'Jennifer', grade: 13, sex: 'F' },
+            { name: 'Courtney', grade: 15, sex: 'F' },
+            { name: 'Jane', grade: 9, sex: 'F' }
+        ]
+
+        // 1. Tính thứ hạng trung bình của cả lớp
+        function average(arr) {
+            let result = 0;
+            for (let i = 0; i < arr.length; i = i + 1) {
+                result = result + arr[i].grade
+            }
+            return (result / arr.length)
+        }
+        console.log('Bài 1')
+        console.log(average(grades))
+
+        // 2. Tính thứ hạng trung bình của Nam trong lớp
+        function averageMale(arr) {
+            let result = 0;
+            let male = 0;
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'M') {
+                    male = male + 1
+                    result = result + arr[i].grade
+                }
+            }
+            return (result / male)
+        }
+        console.log('Bài 2')
+        console.log(averageMale(grades))
+
+        // 3. Tính thứ hạng trung bình của Nữ trong lớp
+        function averageFemale(arr) {
+            let result = 0;
+            let female = 0;
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'F') {
+                    female = female + 1
+                    result = result + arr[i].grade
+                }
+            }
+            return (result / female)
+        }
+        console.log('Bài 3')
+        console.log(averageFemale(grades))
+
+        // 4. Tìm thứ hạng cao nhất của Nam trong lớp
+        function highestMale(arr) {
+            let maleArr = []
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'M') {
+                    maleArr.push(arr[i])
+                }
+            }
+            return highest(maleArr)
+        }
+        console.log('Bài 4')
+        console.log(highestMale(grades))
+
+        // 5. Tìm thứ hạng cao nhất của Nữ trong lớp
+        function highestFemale(arr) {
+            let femaleArr = []
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'F') {
+                    femaleArr.push(arr[i])
+                }
+            }
+            return highest(femaleArr)
+        }
+        console.log('Bài 5')
+        console.log(highestFemale(grades))
+
+        // 6. Tìm thứ hạng thấp nhất của Nam trong lớp
+        function lowestMale(arr) {
+            let maleArr = []
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'M') {
+                    maleArr.push(arr[i])
+                }
+            }
+            return lowest(maleArr)
+        }
+        console.log('Bài 6')
+        console.log(lowestMale(grades))
+
+        // 7. Tìm thứ hạng thấp nhất của Nữ trong lớp
+        function lowestFemale(arr) {
+            let femaleArr = []
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'F') {
+                    femaleArr.push(arr[i])
+                }
+            }
+            return lowest(femaleArr)
+        }
+        console.log('Bài 7')
+        console.log(lowestFemale(grades))
+
+        // 8. Tìm thứ hạng cao nhất của cả lớp
+        function highest(arr) {
+            let highest = arr[0].grade;
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].grade < highest) {
+                    highest = arr[i].grade
+                }
+            }
+            return highest
+        }
+        console.log('Bài 8')
+        console.log(highest(grades))
+
+        // 9. Tìm thứ hạng thấp nhất của cả lớp
+        function lowest(arr) {
+            let lowest = arr[0].grade;
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].grade > lowest) {
+                    lowest = arr[i].grade
+                }
+            }
+            return lowest
+        }
+        console.log('Bài 9')
+        console.log(lowest(grades))
+
+        // 10. Lấy ra danh sách tất cả học viên Nữ trong lớp
+        function findFemale(arr) {
+            let femaleArr = []
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'F') {
+                    femaleArr.push(arr[i])
+                }
+            }
+            return femaleArr
+        }
+        console.log('Bài 10')
+        console.log(findFemale(grades))
+
+        // 11. Sắp xếp tên học viên theo chiều tăng dần của bảng chữ cái
+        // function alphabetArrange(arr) {
+        //     let nameArr = []
+        //     for (let i = 0; i < arr.length; i = i + 1) {
+        //         nameArr.push(arr[i].name);
+        //         nameArr = nameArr.sort();
+        //         console.log(arr[i].name)
+        //     }
+        //     for (let i = 0; i < arr.length; i = i + 1) {
+        //         if (arr.indexOf(arr[i].name) != nameArr.indexOf(nameArr[i])) {
+        //             arr[i].name = nameArr[i]
+        //         }
+        //     }
+        //     console.log(nameArr)
+        //     console.log(arr)
+        // }
+        console.log('Bài 11')
+        // console.log(alphabetArrange(grades))
+
+        // 12. Sắp xếp thứ hạng học viên theo chiều giảm dần
+        // function descendingGrade(arr) {
+
+        // }
+        console.log('Bài 12')
+        // console.log(descendingGrade(grades))
+
+        // 13. Lấy ra học viên nữ có tên bắt đầu bằng "J"
+        function femaleJ(arr) {
+            let femaleArr = []
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i].sex == 'F' && arr[i].name.startsWith("J")) {
+                    femaleArr.push(arr[i])
+                }
+            }
+            return femaleArr
+        }
+        console.log('Bài 13')
+        console.log(femaleJ(grades))
+
+        // 14. Lấy ra top 5 người có thứ hạng cao nhất
+        // function top5Grade(arr) {
+        //     let newArr = []
+        //     let top5 = []
+        //     for (let i = 0; i < arr.length; i = i + 1) {
+        //         newArr.push(arr[i].grade)
+        //         newArr.sort(function (a, b) { return a - b })
+        //     }
+        //     for (let i = 0; i < arr.length; i = i + 1) {
+        //         console.log(newArr.find(ele => ele.grade == newArr[0]))
+        //     }
+        //     console.log(newArr)
+        //     console.log(top5)
+
+
+        // }
+        console.log('Bài 14')
+        // console.log(top5Grade(grades))
+        console.log(`----------------------------------------------------`)
+        // ARROW FUNCTION
+        // 1. Kiểm tra mảng tăng dần
+        // let checkAscend = arr => {
+
+        // }
+        console.log('Bài 1')
+        // console.log(checkAscend([1, 2, 3, 5]))
+        // console.log(checkAscend([2, 2, 8, 4, 7]))
+
+        // 2. Tìm max
+        let findMax = arr => {
+            return arr.sort()[arr.length - 1]
+        }
+        console.log('Bài 2')
+        console.log(findMax([1, 2, 7, 3, 8, 1, 2, 5, 8, 8]))
+
+        // 3. 
+    </script>
+</body>
+
+</html>

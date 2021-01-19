@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 2</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li id="li1">Item 1</li>
+        <li>Item 2</li>
+        <li id="li3">Item 3</li>
+        <li id="li4">Item 4</li>
+        <li id="li5">Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+    </ul>
+
+    <script>
+        // 1. Thêm 3 thẻ <li> có nội dung Item 8, Item 9, Item 10 vào cuối danh sách
+        let ul = document.getElementById('list')
+
+        let li8 = document.createElement('li')
+        li8.innerText = 'Item 8'
+        let li9 = document.createElement('li')
+        li9.innerText = 'Item 9'
+        let li10 = document.createElement('li')
+        li10.innerText = 'Item 10'
+
+        ul.appendChild(li8)
+        ul.appendChild(li9)
+        ul.appendChild(li10)
+
+
+        // 2. Sửa nội dung cho thẻ < li > 1 thành màu đỏ(color)
+        let li1 = document.querySelector('li')
+        li1.style.color = 'red'
+
+        // 3. Sửa background cho thẻ <li> 3 thành màu xanh (background-color)
+        let li3 = document.getElementById('li3')
+        li3.style.backgroundColor = 'green'
+
+        // 4. Remove thẻ <li> 4
+        let li4 = document.getElementById('li4')
+        ul.removeChild(li4)
+
+        // 5. Thêm thẻ <li> mới thay thế cho thẻ <li> 4 bị xóa ở bước trước, thẻ <li> mới có nội dung bất kỳ
+        let newLi = document.createElement('li')
+        newLi.innerText = 'New li'
+        let li5 = document.getElementById('li5')
+        ul.insertBefore(newLi, li5)
+
+        // 6. Thêm 1 nút "add" + 1 ô input để nhập text ở đằng sau ul
+        let button = document.createElement('button')
+        button.innerText = 'Add'
+        button.type = 'submit'
+        document.body.appendChild(button)
+
+        let input = document.createElement('input')
+        input.type = 'text';
+        input.placeholder = 'Text here...';
+        input.autocomplete = 'off';
+        input.style.marginRight = '5px'
+        document.body.insertBefore(input, button)
+
+    </script>
+</body>
+
+</html>

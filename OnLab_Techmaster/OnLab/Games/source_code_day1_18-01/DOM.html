@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body>p:nth-child(4) {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">Đây là thẻ heading</h1>
+    <p>Thẻ para 1</p>
+    <p class="para">Thẻ para 2</p>
+    <p class="para">Thẻ para 3</p>
+    <div class="box">
+        <ul>
+            <li style="display: none">Thẻ li 1</li>
+            <li class="li">Thẻ li 2</li>
+            <li>Thẻ li 3</li>
+            <li id="li4">Thẻ li 4</li>
+            <!-- <li>Thẻ li 5</li> -->
+        </ul>
+    </div>
+    <script>
+        // TRUY CẬP TRỰC TIẾP
+        // Truy cập cục bộ (phạm vi nhỏ hơn .document)
+        let box1 = document.querySelector('.box')
+        let liClass = box1.querySelector('.li')
+
+        // Truy cập 1 phần tử theo ID 
+        let heading = document.getElementById('heading');
+        console.log(heading);
+
+        // Truy cập nhiều phẩn tử thông qua tag name (danh sách HTMLCollection)
+        let p = document.getElementsByTagName('p');
+        console.log(p);
+        console.log(p[0]);
+        console.log(p[1]);
+
+        let h1 = document.getElementsByTagName('h1');
+        console.log(h1[0])
+
+        // Truy cập nhiều phần tử thông qua class name
+        let p_classname = document.getElementsByClassName('para');
+        console.log(p_classname)
+        console.log(p_classname[1])
+
+        // Truy cập thông qua CSS Selector 
+        // (trả về phần tử ĐẦU TIÊN tìm thấy)
+        let h1_css = document.querySelector('#heading');
+        console.log(h1_css);
+
+        let para_css = document.querySelector('.para');
+        console.log(para_css);
+
+        let para3 = document.querySelector('p:nth-child(4)');
+        console.log(para3)
+
+        // Truy cập tất cả các phần tử
+        let p_all = document.querySelectorAll('p');
+        console.log(p_all);
+
+        // TRUY CẬP GIÁN TIẾP
+        let box = document.querySelector('.box');
+        console.log(box.parentNode)
+        console.log(box.nextElementSibling)
+        console.log(box.previousElementSibling)
+        console.log(box.childNodes)
+        console.log(box.children)
+
+        let ul = document.querySelector('ul');
+        console.log(ul.firstChild);
+        console.log(ul.childNodes)
+        console.log(ul.children)
+
+
+        // GET - SET content (Lấy - Đặt nội dung phần tử)
+        // GET:
+        console.log(heading.innerHTML);
+        console.log(heading.innerText);
+        console.log(heading.textContent);
+
+        // Trả về nội dung html (thẻ + nội dung text) trong thẻ
+        console.log(ul.innerHTML)
+        // Trả về nội dung text trong thẻ (Không lấy được nội dung của thẻ ẩn)
+        console.log(ul.innerText)
+        // Trả vè nội dung text (Có định dạng)
+        console.log(ul.textContent)
+
+
+        // SET:
+        // innerHTML CÓ THỂ chèn thẻ vào nội dung
+        heading.innerHTML = 'Xin <br> chào'
+        // innerText và textContent KHÔNG THỂ chèn thẻ vào nội dung
+        heading.innerText = 'Hello'
+
+        // Thay đổi style của phần tử 
+        // Truy cập vào phần tử cần thay đổi => .style.property (= inline style)
+        heading.style.color = 'yellow';
+        heading.style.backgroundColor = '#000';
+        heading.style.color = 'red';
+
+
+        // TẠO và THÊM phần tử DOM
+        let para4 = document.createElement('p')
+        para4.innerText = 'Thẻ para 4';
+        para4.id = 'para4'
+        para4.className = 'para'
+
+        // - Đầu của node cha: parentNode.prepend()
+        document.body.prepend(para4)
+
+        // - Cuối của node cha: parentNode.appendChild()
+        document.body.appendChild(para4)
+        let li5 = document.createElement('li')
+        li5.innerText = 'Thẻ li 5'
+        ul.appendChild(li5)           // (Đã khai báo ul = document.querySelector('ul'))
+
+        // - Trước 1 node khác: parentNode.insertBefore(newNode, referNode) 
+        let newPara = document.createElement('p')
+        newPara.innerText = 'New para'
+        let para2 = document.querySelector('.para')
+        document.body.insertBefore(newPara, para2)
+
+        let newLi = document.createElement('li')
+        newLi.innerText = 'New li'
+        ul.insertBefore(newLi, document.querySelector('#li4'))
+
+        // XÓA phần tử DOM
+        // Truy cập phần tử cần xóa => Tìm node cha 
+        let para1 = document.querySelector('p')
+        document.body.removeChild(para1)
+
+        ul.removeChild(li5)
+
+        // THAY THẾ phần tử DOM
+        // parentNode.replaceChild(newNode, oldNode)
+
+        let link = document.createElement('a');
+        link.innerText = "Google"
+        link.href = "https://google.com";
+        link.target = '_blank';
+        link.style.display = 'block'
+        document.body.replaceChild(link, para2)
+
+        let input = document.createElement('input')
+        input.type = 'text';
+        input.placeholder = 'Nhập tên';
+        input.autocomplete = 'off';
+        document.body.replaceChild(input, para3)
+
+        // SAO CHÉP phần tử
+        // node.cloneNode(deep)
+        // node: Phần tử được clone
+        // deep: + true: sao chép toàn bộ node và các node con của nó
+        //       + false (mặc định): sao chép
+        let ulCopy = ul.cloneNode(true);
+        document.body.appendChild(ulCopy)
+    </script>
+</body>
+
+</html>

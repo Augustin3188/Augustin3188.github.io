@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class DOM</title>
+    <style>
+        .text-big {
+            font-size: 2rem;
+        }
+
+        .text-red {
+            color: red;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+
+        .text-upper {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="para">Đây là thẻ p</p>
+
+    <script>
+        //  ClassList là thuộc tính read - only
+        let para = document.querySelector('.para');
+        console.log(para.classList);
+
+        //  add(): Thêm các class được chỉ định
+        // Có thể thêm 1 hoặc nhiều class
+        para.classList.add('text-big', 'text-red', 'text-upper')
+
+        //  remove(): Loại bỏ class
+        // Có thể xóa 1 hoặc nhiều class
+        para.classList.remove('text-red', 'text-upper')
+
+        //  contains(): Kiểm tra class có tồn tại trong phần tử không
+        // Trả về true / false
+        console.log(para.classList.contains('text-red'))
+        console.log(para.classList.contains('text-big'))
+
+        //  toggle(): Kiểm tra 1 class
+        // Nếu tồn tại trong phần tử thì xóa đi
+        // Nếu không tồn tại thì thêm vào
+        
+        // setInterval(function () {
+        //     para.classList.toggle('text-big')
+        // }, 500)
+        setInterval(toggleClass, 500)
+        // setInterval: thực hiện 1 công việc lặp đi lặp lại
+        setInterval(function () {
+            para.classList.toggle('text-red')
+        }, 750)
+        setInterval(function () {
+            para.classList.toggle('text-upper')
+        }, 300)
+
+        // setTimeout: delay; sau 1 thời gian thực hiện công việc
+        setTimeout(toggleClass, 1500)
+
+        function toggleClass() {
+            para.classList.toggle('text-big')
+        }
+
+        let time = 15;
+        let interval = setInterval(function () {
+            time--
+            if (time < 10) {
+                para.classList.add('text-red')
+                // para.style.color = '#ff0000'
+            }
+            if (time == 0) {
+                // Dừng công việc (phải khai báo biến)
+                clearInterval(interval)
+            }
+            para.innerText = time;
+        }, 1000)
+    </script>
+</body>
+
+</html>
