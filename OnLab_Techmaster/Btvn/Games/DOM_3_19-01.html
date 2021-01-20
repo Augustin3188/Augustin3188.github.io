@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM Practice 01</title>
+    <title>DOM 3</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -36,7 +42,22 @@
 
     <script>
         // Bài 1: Highlight tất cả các từ có độ dài lớn hơn hoặc bằng 8 ký tự trong đoạn văn (background = "yellow")
+        let p = document.querySelector('p')
+        // function wordLength(p) {
+        //     let arr = p.innerText.split(" ")
+        //     let newArr = []
+        //     for (let i = 0; i < arr.length; i = i + 1) {
+        //         let context = arr[i].innerHTML
+        //         if (arr[i].length >= 8) {
+        //             context = `<span class="highlight">${arr[i]}</span>`
+        //         }
+        //     }
+        //     let result = arr.join(" ")
+        //     return result
+        // }
 
+        // console.log(p.innerHTML)
+        // console.log(wordLength(p))
 
         // Bài 2: Thêm link hiển thị text "facebook" link đến trang facebook.com ở sau thẻ p
         let link = document.createElement('a');
@@ -47,8 +68,39 @@
         document.body.appendChild(link)
 
         // Bài 3. Đếm số từ có trong đoạn văn. Tạo 1 thẻ div để hiển thị số từ
+        function wordCount(p) {
+            let arr = p.innerText.split(" ")
+            let count = 0
+            for (let i = 0; i < arr.length; i = i + 1) {
+                count = count + 1
+            }
+            return count
+        }
+        let divCount = document.createElement('div');
+        divCount.innerText = `Số từ trong đoạn văn: ${wordCount(p)}`
+        divCount.style.color = '#fff'
+        divCount.style.backgroundColor = '#000'
+        divCount.style.marginTop = '10px'
+        document.body.appendChild(divCount)
 
         // Bài 4: thay thế ký hiệu ? => 🤔 và ! => 😲
+        // let question = document.getElementsBy
+        // let exclamation =
+        function changeSymbol(p) {
+            let arr = p.innerText.split("")
+            for (let i = 0; i < arr.length; i = i + 1) {
+                if (arr[i] == '?') {
+                    arr.splice(i, 1, '🤔')
+                }
+                if (arr[i] == '!') {
+                    arr.splice(i, 1, '😲')
+                }
+            }
+            let result = arr.join("")
+            p.innerText = result
+            return p
+        }
+        changeSymbol(p)
     </script>
 </body>
 
