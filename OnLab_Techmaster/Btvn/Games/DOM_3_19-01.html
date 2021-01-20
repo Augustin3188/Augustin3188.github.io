@@ -41,24 +41,7 @@
 
 
     <script>
-        // Bài 1: Highlight tất cả các từ có độ dài lớn hơn hoặc bằng 8 ký tự trong đoạn văn (background = "yellow")
         let p = document.querySelector('p')
-        // function wordLength(p) {
-        //     let arr = p.innerText.split(" ")
-        //     let newArr = []
-        //     for (let i = 0; i < arr.length; i = i + 1) {
-        //         let context = arr[i].innerHTML
-        //         if (arr[i].length >= 8) {
-        //             context = `<span class="highlight">${arr[i]}</span>`
-        //         }
-        //     }
-        //     let result = arr.join(" ")
-        //     return result
-        // }
-
-        // console.log(p.innerHTML)
-        // console.log(wordLength(p))
-
         // Bài 2: Thêm link hiển thị text "facebook" link đến trang facebook.com ở sau thẻ p
         let link = document.createElement('a');
         link.innerText = "Facebook"
@@ -83,9 +66,13 @@
         divCount.style.marginTop = '10px'
         document.body.appendChild(divCount)
 
-        // Bài 4: thay thế ký hiệu ? => 🤔 và ! => 😲
-        // let question = document.getElementsBy
-        // let exclamation =
+        // CHỮA:
+        // let wordCount = para.textContent.split(' ').length
+        // let wordCountEle = document.createElement('div')
+        // wordCountEle.innerText = `{${wordCount}} words`
+        // document.body.appendChild(worldCountEle)
+
+        // Bài 4: thay thế ký hiệu ? => 🤔 và! => 😲
         function changeSymbol(p) {
             let arr = p.innerText.split("")
             for (let i = 0; i < arr.length; i = i + 1) {
@@ -101,6 +88,22 @@
             return p
         }
         changeSymbol(p)
+
+        // CHỮA: 
+        // replace(/\ /g: thay thế toàn bộ (global));
+        // replace(/\ /m: thay thế trên nhiều dòng (global));
+        // replace(/\ /i: không phân biệt chữ hoa/thường)
+        // p.immerText = p.innerText.replace(/\?/g, '🤔')
+        // p.immerText = p.innerText.replace(/\!/g, '😲')
+
+        // Bài 1: Highlight tất cả các từ có độ dài lớn hơn hoặc bằng 8 ký tự trong đoạn văn (background = "yellow")
+        // CHỮA: 
+
+        let content = p.innerText
+            .split(' ')
+            .map(word => word.length >= 8 ? `<span style="background:yellow">${word}</span>` : word)
+            .join(' ')
+        p.innerHTML = content
     </script>
 </body>
 
