@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Enter name" class="input">
+    <h1></h1>
+    <button class="btn">Submit</button>
+
+
+    <script>
+        let btn = document.querySelector('.btn');
+        let input = document.querySelector('.input');
+        let h1 = document.querySelector('h1');
+
+        btn.addEventListener('click', function () {
+            // Lấy nội dung trong input
+            let value = input.value
+            // Nếu ô input trống
+            if (value == '') {
+                alert('Nhập tên đi!!')
+                return
+            }
+            // Hiển thị nội dung vào h1
+            h1.innerText = value
+            // Làm trống ô input
+            input.value = ''
+            input.focus();
+        })
+
+        input.addEventListener('blur', function () {
+            // let value = this.value
+            let value = e.target.value;
+            this.value = value.toUpperCase();
+        })
+
+       
+
+    </script>
+</body>
+
+</html>

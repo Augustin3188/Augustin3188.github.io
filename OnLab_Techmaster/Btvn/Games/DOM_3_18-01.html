@@ -53,10 +53,7 @@
         // Bài 3. Đếm số từ có trong đoạn văn. Tạo 1 thẻ div để hiển thị số từ
         function wordCount(p) {
             let arr = p.innerText.split(" ")
-            let count = 0
-            for (let i = 0; i < arr.length; i = i + 1) {
-                count = count + 1
-            }
+            let count = arr.length
             return count
         }
         let divCount = document.createElement('div');
@@ -93,9 +90,24 @@
         // replace(/\ /g: thay thế toàn bộ (global));
         // replace(/\ /m: thay thế trên nhiều dòng (global));
         // replace(/\ /i: không phân biệt chữ hoa/thường)
-        // p.immerText = p.innerText.replace(/\?/g, '🤔')
-        // p.immerText = p.innerText.replace(/\!/g, '😲')
 
+        // Cách 1:
+        // p.innerText = p.innerText.replace(/\?/g, '🤔')
+        // p.innerText = p.innerText.replace(/\!/g, '😲')
+
+        // Cách 2:
+        // p.innerText = p.innerText
+        //     .split('')
+        //     .map(word => {
+        //         if (word == '?') {
+        //             word = '🤔'
+        //         }
+        //         if (word == '!') {
+        //             word = '😲'
+        //         }
+        //         return word
+        //     })
+        //     .join('')
         // Bài 1: Highlight tất cả các từ có độ dài lớn hơn hoặc bằng 8 ký tự trong đoạn văn (background = "yellow")
         // CHỮA: 
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM & </title>
+</head>
+
+<body>
+    <h1 id="heading">Đây là thẻ heading</h1>
+    <p>Thẻ para 1</p>
+    <p class="para">Thẻ para 2</p>
+    <p class="para">Thẻ para 3</p>
+    <div class="box">
+        <ul>
+            <li style="display: none">Thẻ li 1</li>
+            <li class="li">Thẻ li 2</li>
+            <li>Thẻ li 3</li>
+            <li id="li4">Thẻ li 4</li>
+        </ul>
+    </div>
+
+    <script>
+        // Thêm phần tử
+        // Ví dụ:
+        let para4 = document.createElement('p')
+        para4.innerText = 'Thẻ para 4 (beforebegin)'
+        let box = document.querySelector('.box')
+        // document.body.insertBefore(para4, box)
+
+        let para3 = document.querySelector('body > p:nth-child(4)')
+        let para4_ = document.createElement('p')
+        para4_.innerText = 'Thẻ para 4_ (afterend)'
+
+        let ul = document.querySelector('ul')
+
+        // Dùng targetElement.insertAdjacentElement('position', )
+
+        box.insertAdjacentElement('beforebegin', para4)
+        para3.insertAdjacentElement('afterend', para4_)
+        para3.insertAdjacentHTML('afterend', '<p>Thẻ para 4 (chèn HTML)</p>')
+        ul.insertAdjacentHTML('beforeend', '<li>Thẻ li 5</p>')
+
+        // Các POSITION:
+        // + beforebegin: thẻ đồng cấp ở trước
+        // + afterbegin: thẻ con đầu tiên (firstChild)
+        // + beforeend: thẻ con cuối cùng (lastChild)
+        // + afterend: thẻ đồng cấp ở sau
+
+    </script>
+</body>
+
+</html>

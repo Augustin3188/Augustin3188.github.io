@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Heading</h1>
+    <button onclick="countDown()">Click me</button>
+    <button id="btn">Click</button>
+    <button id="btn01">Click 01</button>
+    <script>
+
+        // EVENTS:
+        // Cách 1: HTML - Attribute
+        let h1 = document.querySelector('h1')
+        let time = 20
+        function countDown() {
+            let interval = setInterval(function () {
+                time--
+                h1.innerText = time
+                if (time == 0) {
+                    btn.style.background = null
+                    clearInterval(interval)
+                }
+            }, 500)
+
+        }
+
+        // Cách 2: Truy cập ID:
+        let btn = document.getElementById('btn');
+        // btn.onclick = function () {
+        //     console.log('Hello 1')
+        // }
+
+        // Hoặc tách riêng function:
+        btn.onclick = sayHello_01
+        function sayHello_01() {
+            button.insertAdjacentHTML('afterend', '<p style ="display:inline">Do not click</p>')
+        }
+
+        // Cách 3: addEventListener(tên sự kiện, function)
+        let button = document.getElementById('btn01');
+        button.addEventListener('click', function () {
+            btn.style.background = 'crimson'
+        })
+
+
+        // document.addEventListener('mousemove', function () {
+        //     console.log('mouse moved')
+        //     console.log(event)
+        // })
+
+    </script>
+</body>
+
+</html>

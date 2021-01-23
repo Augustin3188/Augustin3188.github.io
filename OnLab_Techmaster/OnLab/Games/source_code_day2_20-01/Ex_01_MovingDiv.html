@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: darkcyan;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        document.addEventListener('mousemove', function () {
+            let offSetX = event.offsetX;
+            let offSetY = event.offsetY;
+            console.log(offSetX, offSetY)
+
+            let box = document.getElementById('box');
+            box.style.position = 'relative';
+            box.style.top = `${offSetY - 50}px`;
+            box.style.left = `${offSetX - 50}px`
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM 2</title>
     <style>
+        .li-display {
+            display: none;
+        }
 
+        .button-content {
+            content: 'Show'
+        }
     </style>
 </head>
 
@@ -15,8 +21,8 @@
         <li id="li1">Item 1</li>
         <li>Item 2</li>
         <li id="li3">Item 3</li>
-        <li id="li4">Item 4</li>
-        <li id="li5">Item 5</li>
+        <li id="li4" class="li">Item 4</li>
+        <li id="li5" class="li">Item 5</li>
         <li>Item 6</li>
         <li>Item 7</li>
     </ul>
@@ -55,10 +61,11 @@
         let li5 = document.getElementById('li5')
         ul.insertBefore(newLi, li5)
 
-        // 6. Thêm 1 nút "add" + 1 ô input để nhập text ở đằng sau ul
+        // 6. Thêm 1 nút "add" + 1 ô input để nhập text ở đằng sau ul. Mỗi khi bấm nút thêm 1 thẻ <li> có nội dung là nội dung trong ô input vào cuối danh sách
         let button = document.createElement('button')
         button.innerText = 'Add'
         button.type = 'submit'
+        button.style.marginRight = '5px'
         document.body.appendChild(button)
 
         let input = document.createElement('input')
@@ -68,6 +75,43 @@
         input.style.marginRight = '5px'
         document.body.insertBefore(input, button)
 
+        button.addEventListener('click', function () {
+            let value = input.value
+            if (value == 0) {
+                return
+            }
+            ul.insertAdjacentHTML('beforeend', `<li>${value}</li>`)
+            input.value = ''
+        })
+
+        //  7. Thêm 1 nút "remove". Chức năng để xóa thẻ <li> cuối cùng của danh sách
+        let removeButton = document.createElement('button')
+        removeButton.innerText = 'Remove'
+        removeButton.type = 'submit'
+        button.insertAdjacentElement('afterend', removeButton)
+        removeButton.addEventListener('click', function () {
+            ul.removeChild(ul.lastChild)
+        })
+
+        //  8. Thêm 1 nút "Hide" trên đầu của danh sách <ul>.
+        //  Khi bấm vào "Hide" thì <ul> sẽ ẩn. Đồng thời label của nút "Hide" => "Show"
+        //  Và ngược lại Khi bấm vào "Show" thì <ul> sẽ hiện. Đồng thời label của nút "Show" => "Hide"
+        // let li = document.getElementsByTagName('li')
+        // console.log(li)
+        let displayButton = document.createElement('button')
+        displayButton.innerText = 'Hide'
+        displayButton.type = 'submit'
+        ul.insertAdjacentElement('beforebegin', displayButton)
+
+        displayButton.addEventListener('click', function () {
+            ul.classList.toggle('li-display')
+            if (displayButton.innerText == 'Hide') {
+                displayButton.innerText = 'Show'
+            }
+            else {
+                displayButton.innerText = 'Hide'
+            }
+        })
     </script>
 </body>
 
