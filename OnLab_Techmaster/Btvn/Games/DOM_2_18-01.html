@@ -78,6 +78,7 @@
         button.addEventListener('click', function () {
             let value = input.value
             if (value == 0) {
+                alert('Hãy nhập nội dung!')
                 return
             }
             ul.insertAdjacentHTML('beforeend', `<li>${value}</li>`)
@@ -90,8 +91,15 @@
         removeButton.type = 'submit'
         button.insertAdjacentElement('afterend', removeButton)
         removeButton.addEventListener('click', function () {
-            ul.removeChild(ul.lastChild)
+            if (ul.hasChildNodes()) {
+                ul.removeChild(ul.lastChild)
+            }
+            else {
+                alert('Đã hết nội dung để xóa!')
+                return
+            }
         })
+
 
         //  8. Thêm 1 nút "Hide" trên đầu của danh sách <ul>.
         //  Khi bấm vào "Hide" thì <ul> sẽ ẩn. Đồng thời label của nút "Hide" => "Show"
