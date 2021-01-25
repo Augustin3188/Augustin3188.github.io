@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #74b9ff;
+            height: 80vh;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #container {
+            height: 550px;
+            background-color: #fff;
+            margin: 50px 80px;
+            padding: 0px 100px;
+        }
+
+        #title {
+            background-color: #0984e3;
+            width: 90%;
+            height: 15%;
+            padding: 5px 0px 10px 165px;
+            font-size: 24;
+            margin: auto;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: baseline;
+            width: 90%;
+            margin: 150px auto 100px;
+            font-weight: 700;
+            font-size: 35px;
+        }
+
+        #number1,
+        #number2 {
+            border: solid;
+            border-color: #0984e3;
+            padding: 50px;
+        }
+
+        #input {
+            border: solid;
+            border-color: #0984e3;
+            padding: 50px 30px 50px 35px;
+        }
+
+        #sign,
+        #equal {
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            padding: 15px;
+        }
+
+        input {
+            text-align: center;
+            border: none;
+            width: 75px;
+            height: 43px;
+            font-size: 35px;
+        }
+
+        button {
+            background-color: #0984e3;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <div id='title'>
+            <h1>THỬ TÀI TÍNH TOÁN NÀO BẠN ƠI!</h1>
+        </div>
+        <div id='content'>
+            <div id='number1' class='box'>abc</div>
+            <div id='sign' class='box'>+</div>
+            <div id='number2' class='box'>abc</div>
+            <div id='equal' class='box'>=</div>
+            <div id='input' class='box'><input id='input1' type="number"></input></div>
+            <div id='button' class='box'><button>Kiểm tra</button></div>
+        </div>
+    </div>
+
+    <script>
+        // Truy cập số
+        let number1 = document.querySelector('#number1')
+        let number2 = document.querySelector('#number2')
+        // Truy cập dấu
+        let sign = document.querySelector('#sign')
+        let signs = ['+', '-', '/', '%', '*']
+        // Truy cập input & button
+        let input = document.querySelector('#input1')
+        let button = document.querySelector('#button')
+        function random() {
+            number1.innerHTML = Math.floor(Math.random() * 100)
+            // number2 != 0 để phép chia có nghĩa
+            number2.innerHTML = Math.floor(Math.random() * 100 + 1)
+            sign.innerHTML = signs[Math.floor(Math.random() * 5)]
+        }
+        // Random số 
+        random()
+
+        // Kiểm tra kết quả phép tính
+        function check() {
+            if (input.value == '') {
+                alert('Hãy nhập 1 số vào~!')
+            }
+            else {
+                alert('Sai mất rồi~ Thử điền kết quả khác nhé!')
+                input.value = ''
+            }
+        }
+        // Thông báo kết quả nếu là phép chia
+        if (sign.innerHTML == '/') {
+            alert('Làm tròn xuống đến chữ số thập phân thứ 2')
+        }
+
+        button.addEventListener('click', function () {
+            let value = input.value
+            let signValue = sign.innerHTML
+            if (signValue == '+') {
+                if (number1.innerHTML * 1 + number2.innerHTML * 1 == value * 1) {
+                    alert('Chính xác~!!')
+                    random()
+                    input.value = ''
+                }
+                else {
+                    check()
+                }
+            }
+
+            else if (signValue == '-') {
+                if (number1.innerHTML * 1 - number2.innerHTML * 1 == value * 1) {
+                    alert('Chính xác~!!')
+                    random()
+                    input.value = ''
+                }
+                else {
+                    check()
+                }
+            }
+
+            else if (signValue == '*') {
+                if ((number1.innerHTML * 1) * (number2.innerHTML * 1) == value * 1) {
+                    alert('Chính xác~!!')
+                    random()
+                    input.value = ''
+                }
+                else {
+                    check()
+                }
+            }
+
+            else if (signValue == '/') {
+                if (Math.floor((number1.innerHTML * 1) / (number2.innerHTML * 1) * 100) / 100 == value) {
+                    alert('Chính xác~!!')
+                    random()
+                    input.value = ''
+                }
+                else {
+                    check()
+                }
+            }
+
+            else if (signValue == '%') {
+                if ((number1.innerHTML * 1) % (number2.innerHTML * 1) == value * 1) {
+                    alert('Chính xác~!!')
+                    random()
+                    input.value = ''
+                }
+                else {
+                    check()
+                }
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
