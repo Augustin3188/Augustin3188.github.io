@@ -52,18 +52,77 @@
             '#d35400',
         ]
 
-        let totalBox = 5;
-        function createBox() {
-            for (let i = 0; i < totalBox + 1; i = i + 1) {
-                let box = document.createElement('div')
-                
-            }
-        }
-        let box1 = document.createElement('div')
-        box1.classList.add('box')
-        box1.style.backgroundColor = colors[0]
+        // Truy cập tổng số Box
+        let totalBox = document.querySelector('.points')
+        totalBox.innerHTML = 5
+        // Truy cập button
+        let button = document.querySelector('#btn')
         let boxes = document.querySelector('.boxes')
-        boxes.appendChild(box1)
+
+        function createBox() {
+            // Tạo 5 hộp đầu
+            let box1 = document.createElement('div')
+            let box2 = document.createElement('div')
+            let box3 = document.createElement('div')
+            let box4 = document.createElement('div')
+            let box5 = document.createElement('div')
+
+            // Thêm attribute
+            box1.classList.add('box')
+            box1.style.backgroundColor = colors[0]
+            boxes.appendChild(box1)
+
+            box2.classList.add('box')
+            box2.style.backgroundColor = colors[1]
+            boxes.appendChild(box2)
+
+            box3.classList.add('box')
+            box3.style.backgroundColor = colors[2]
+            boxes.appendChild(box3)
+
+            box4.classList.add('box')
+            box4.style.backgroundColor = colors[3]
+            boxes.appendChild(box4)
+
+            box5.classList.add('box')
+            box5.style.backgroundColor = colors[4]
+            boxes.appendChild(box5)
+
+            // Event click hộp
+            box1.addEventListener('click', function () {
+                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+                box1.style.display = 'none'
+            })
+
+            box2.addEventListener('click', function () {
+                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+                box2.style.display = 'none'
+            })
+
+            box3.addEventListener('click', function () {
+                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+                box3.style.display = 'none'
+            })
+
+            box4.addEventListener('click', function () {
+                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+                box4.style.display = 'none'
+            })
+
+            box5.addEventListener('click', function () {
+                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+                box5.style.display = 'none'
+            })
+        }
+
+        createBox()
+
+        // Event click button -> Thêm hộp
+        button.addEventListener('click', function () {
+            totalBox.innerHTML = totalBox.innerHTML * 1 + 5
+            createBox()
+        })
+
     </script>
 </body>
 
