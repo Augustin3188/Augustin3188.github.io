@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+
+<body>
+
+    <script>
+        // if (typeof (Storage) !== "undefined") {
+        //     console.log('có')
+        // }
+        // else {
+        //     console.log('không')
+        // }
+
+        // Phương thức:
+        // setItem: Tạo dữ liệu trong localStorage 
+        // (tạo điểm sau khi hoàn thành trò chơi) 
+        localStorage.setItem('name', 'Nguyễn Văn A')
+        localStorage.setItem('age', '24')
+        localStorage.setItem('status', 'true')
+        localStorage.setItem('numbers', '[0,1,2,3,4]')
+        let user = {
+            name: 'abc',
+            age: 24,
+        }
+        // : JSON.stringify(): Đưa object về dạng string
+        localStorage.setItem('user', JSON.stringify(user))
+
+        // getItem: lấy dữ liệu từ localStorage 
+        // (init)
+        let name = localStorage.getItem('name')
+        console.log(name)
+
+        // JSON.parse(): Đưa string về dạng Object 
+        let user1 = JSON.parse(localStorage.getItem('user'))
+        console.log(user1)
+
+        // remove: Xóa dữ liệu từ localStorage
+        localStorage.removeItem('name')
+        localStorage.removeItem('age')
+
+        // clear: Xóa hết dữ liệu từ localStorage
+        // localStorage.clear()
+
+        // 1. init load ranking từ localStorage
+        // 2. khi time == 0 lưu dữ liệu rank vào localStorage
+        // 3. window.location.reload == f5
+        // 3. kích hoạt init 
+    </script>
+</body>
+
+</html>

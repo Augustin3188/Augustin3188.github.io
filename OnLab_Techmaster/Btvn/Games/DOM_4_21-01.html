@@ -44,84 +44,137 @@
     </body>
 
     <script>
-        let colors = [
+        // let colors = [
+        //     '#3498db',
+        //     '#9b59b6',
+        //     '#e74c3c',
+        //     '#2c3e50',
+        //     '#d35400',
+        // ]
+
+        // CHỮA:
+        let data = [
             '#3498db',
             '#9b59b6',
             '#e74c3c',
             '#2c3e50',
             '#d35400',
         ]
+        let colors = [...data]
+        // (hoặc = data.slice()) => clone mảng
 
         // Truy cập tổng số Box
         let totalBox = document.querySelector('.points')
         totalBox.innerHTML = 5
         // Truy cập button
         let button = document.querySelector('#btn')
-        let boxes = document.querySelector('.boxes')
+        let boxesEl = document.querySelector('.boxes')
 
-        function createBox() {
-            // Tạo 5 hộp đầu
-            let box1 = document.createElement('div')
-            let box2 = document.createElement('div')
-            let box3 = document.createElement('div')
-            let box4 = document.createElement('div')
-            let box5 = document.createElement('div')
+        // CHỮA: 
+        function renderBox(arr) {
+            boxesEl.innerHTML = ''
+            if (arr.length == 0) {
+                boxesEl.innerText = 'Không có box nào trong danh sách';
+                return
+            }
 
-            // Thêm attribute
-            box1.classList.add('box')
-            box1.style.backgroundColor = colors[0]
-            boxes.appendChild(box1)
-
-            box2.classList.add('box')
-            box2.style.backgroundColor = colors[1]
-            boxes.appendChild(box2)
-
-            box3.classList.add('box')
-            box3.style.backgroundColor = colors[2]
-            boxes.appendChild(box3)
-
-            box4.classList.add('box')
-            box4.style.backgroundColor = colors[3]
-            boxes.appendChild(box4)
-
-            box5.classList.add('box')
-            box5.style.backgroundColor = colors[4]
-            boxes.appendChild(box5)
-
-            // Event click hộp
-            box1.addEventListener('click', function () {
-                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
-                box1.style.display = 'none'
-            })
-
-            box2.addEventListener('click', function () {
-                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
-                box2.style.display = 'none'
-            })
-
-            box3.addEventListener('click', function () {
-                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
-                box3.style.display = 'none'
-            })
-
-            box4.addEventListener('click', function () {
-                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
-                box4.style.display = 'none'
-            })
-
-            box5.addEventListener('click', function () {
-                totalBox.innerHTML = totalBox.innerHTML * 1 - 1
-                box5.style.display = 'none'
-            })
+            for (let i = 0; i < arr.length; i = i + 1) {
+                const b = arr[i]
+                boxesEl.innerHTML += `
+                <div
+                    class='box'
+                    style='background-color:${b}'
+                    onclick='removeBox(${i})'
+                >
+                 </div>
+                `
+            }
         }
 
-        createBox()
+        function updateTotalBox() {
+            totalBox.innerText = colors.length
+        }
 
-        // Event click button -> Thêm hộp
+        function update() {
+            renderBox(colors)
+            updateTotalBox()
+        }
+
+        window.onload = update
+
         button.addEventListener('click', function () {
-            totalBox.innerHTML = totalBox.innerHTML * 1 + 5
-            createBox()
+            colors = [...colors, ...data];
+            update()
         })
+
+        function removeBox(index) {
+            colors = colors.filter((color, i) => i != index);
+            update()
+        }
+
+        // function createBox() {
+        //     // Tạo 5 hộp đầu
+        //     let box1 = document.createElement('div')
+        //     let box2 = document.createElement('div')
+        //     let box3 = document.createElement('div')
+        //     let box4 = document.createElement('div')
+        //     let box5 = document.createElement('div')
+
+        //     // Thêm attribute
+        //     box1.classList.add('box')
+        //     box1.style.backgroundColor = colors[0]
+        //     boxes.appendChild(box1)
+
+        //     box2.classList.add('box')
+        //     box2.style.backgroundColor = colors[1]
+        //     boxes.appendChild(box2)
+
+        //     box3.classList.add('box')
+        //     box3.style.backgroundColor = colors[2]
+        //     boxes.appendChild(box3)
+
+        //     box4.classList.add('box')
+        //     box4.style.backgroundColor = colors[3]
+        //     boxes.appendChild(box4)
+
+        //     box5.classList.add('box')
+        //     box5.style.backgroundColor = colors[4]
+        //     boxes.appendChild(box5)
+
+        //     // Event click hộp
+        //     box1.addEventListener('click', function () {
+        //         totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+        //         box1.style.display = 'none'
+        //     })
+
+        //     box2.addEventListener('click', function () {
+        //         totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+        //         box2.style.display = 'none'
+        //     })
+
+        //     box3.addEventListener('click', function () {
+        //         totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+        //         box3.style.display = 'none'
+        //     })
+
+        //     box4.addEventListener('click', function () {
+        //         totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+        //         box4.style.display = 'none'
+        //     })
+
+        //     box5.addEventListener('click', function () {
+        //         totalBox.innerHTML = totalBox.innerHTML * 1 - 1
+        //         box5.style.display = 'none'
+        //     })
+        // }
+
+        // createBox()
+
+        // // Event click button -> Thêm hộp
+        // button.addEventListener('click', function () {
+        //     totalBox.innerHTML = totalBox.innerHTML * 1 + 5
+        //     createBox()
+        // })
 
     </script>
 </body>
