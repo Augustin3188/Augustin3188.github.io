@@ -38,6 +38,7 @@ let time;
 let interval;
 let wrongAnswer = 0;
 
+
 let ranking = [];
 
 
@@ -86,7 +87,6 @@ function countDown() {
         clearInterval(interval)
         timeEl.innerText = `${time}s`
         updateHighScore();
-        // localStorage.setItem('score', score)
         addPlayerToRanking();
         wrong.innerText = wrongAnswer
         result.innerText = score;
@@ -198,6 +198,8 @@ function start() {
     startGame.style.display = 'flex';
     game.style.display = 'none';
     endGame.style.display = 'none';
+    userName.value = '';
+    userAvatar.value = '';
 }
 
 function end() {
@@ -206,22 +208,21 @@ function end() {
     endGame.style.display = 'flex';
 }
 
-
+// Sự kiện khi bắt đầu game
+// let name
+// let avatar
 startButton.addEventListener('click', function () {
     // Điền tên và ảnh
     if (userName.value == '' || userAvatar.value == '') {
         alert('Hãy điền đầy đủ thông tin!!!')
         return
     }
-
-    // localStorage
-    localStorage.setItem('name', userName.value)
-    localStorage.setItem('avatar', userAvatar.value)
     init()
 })
 
 exitButton.addEventListener('click', function () {
     start()
+    // Hoặc: window.location.reload()
 })
 
 playAgainButton.addEventListener('click', function () {
