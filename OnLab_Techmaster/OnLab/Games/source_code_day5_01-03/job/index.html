@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="hero">
+                <div class="logo">
+                    <h1>Bảng công việc</h1>
+                    <p>Tìm kiếm công việc phù hợp với bạn</p>
+                    <h2 id="jobs-listed"><span id="jobs-total">300</span> công việc có trong danh sách</h2>
+                </div>
+                <div class="menu">
+                    <button id="show-all">Tất cả công việc</button>
+                    <input id="search" type="text" placeholder="Tìm kiếm ..." autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center mt-5">Danh sách công việc hiện có</h2>
+            </div>
+        </div>
+        <div class="row jobs">
+            <div class="col-md-3 job-card">
+                <div class="job-card-inner">
+                    <h3>Software Engineer</h3>
+                    <h4>$50</h4>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Git</li>
+                        <li>AWS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Yêu cầu: Sử dụng Javascript để thực hiện các công việc sau
+        let jobCard = document.querySelector('.job-card');
+        let jobs = document.querySelector('.jobs');
+        let jobsListed = document.querySelector('#jobs-total');
+        let search = document.querySelector('#search')
+        let jobNames = document.getElementsByTagName('h3')
+        let jobCards = document.getElementsByClassName('job-card')
+        let button = document.querySelector('#show-all')
+        let noJob = document.createElement('div')
+
+        // 1. Thêm 3 job bổ sung vào phần 'job' của trang bằng cách sao chép 'job-card' ban đầu.
+        let jobCardCopy1 = jobCard.cloneNode(true)
+        let jobCardCopy2 = jobCard.cloneNode(true)
+        let jobCardCopy3 = jobCard.cloneNode(true)
+        jobs.appendChild(jobCardCopy1)
+        jobs.appendChild(jobCardCopy2)
+        jobs.appendChild(jobCardCopy3)
+
+        // 2. Cập nhật tiêu đề của các job mới thành : JavaScript Developer, Java Developer, Python Developer
+        let title1 = jobCardCopy1.querySelector('h3')
+        title1.innerText = 'JavaScript Developer'
+
+        let title2 = jobCardCopy2.querySelector('h3')
+        title2.innerText = 'Java Developer'
+
+        let title3 = jobCardCopy3.querySelector('h3')
+        title3.innerText = 'Python Developer'
+
+        // 3. Cập nhật Jobs listed thành tổng số công việc hiện có trong trang
+        let jobTotal
+        function countJobTotal() {
+            jobTotal = document.getElementsByClassName('job-card').length
+            for (let i = 0; i < jobCards.length; i = i + 1) {
+                if (jobCards[i].classList.contains('no-display')) {
+                    jobTotal = jobTotal - 1
+                }
+            }
+            jobsListed.innerText = jobTotal;
+        }
+        countJobTotal()
+
+        // 4. Nhập tên công việc vào ô tìm kiếm để lọc các công việc (lọc theo tên công việc). Những công việc được tìm thấy sẽ hiển thị ra, còn lại sẽ bị ẩn đi
+        function checkValue(a, b) {
+            return a.includes(b)
+        }
+
+        let arr = [...jobNames];
+        noJob.innerHTML = '<h2>Không có công việc thích hợp</h2>'
+        noJob.classList.add('justify')
+
+        search.addEventListener('keydown', function (e) {
+            if (e.keyCode == 13) {
+                for (let i = 0; i < arr.length; i = i + 1) {
+                    let result = checkValue(arr[i].innerText.toLowerCase(), search.value.toLowerCase())
+                    if (result == true) {
+                        jobCards[i].classList.remove('no-display')
+                    }
+                    else {
+                        jobCards[i].classList.add('no-display')
+                    }
+                }
+                countJobTotal()
+                if (jobTotal == 0) {
+                    jobs.insertAdjacentElement('beforeend', noJob)
+                }
+            }
+        })
+
+        // 5. Bấm vào Nút "All jobs" để reset ô tìm kiếm và hiển thị ra tất cả các công việc
+        button.addEventListener('click', function () {
+            search.value = ''
+            for (let i = 0; i < arr.length; i = i + 1) {
+                jobCards[i].classList.remove('no-display')
+            }
+            countJobTotal()
+        })
+
+    </script>
+</body>
+
+</html>
