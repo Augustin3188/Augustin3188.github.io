@@ -194,17 +194,6 @@ inputEle.addEventListener('input', function (e) {
 
 })
 
-
-// function getDifficultyValue() {
-//     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i].value == [...levelEle].value) {
-//             difficultyValue = arr[i].value
-//         }
-//     }
-//     console.log(difficultyValue)
-//     return difficultyValue
-// }
-
 function setDifficulty() {
     let difficulty = levelEle.value;
     switch (difficulty) {
@@ -213,7 +202,7 @@ function setDifficulty() {
             time = 31
             break;
         case 'medium':
-            words = [...words2]
+            words = [...words1]
             time = 21
             break;
         case 'hard':
