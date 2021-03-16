@@ -85,10 +85,10 @@ function init() {
     startSound.play();
 
     // Background music
-    backgroundMusic = new sound("./audio/bg.mp3");
-    backgroundMusic.sound.volume = 0.25;
-    backgroundMusic.sound.loop = true;
-    backgroundMusic.play();
+    // backgroundMusic = new sound("./audio/bg.mp3");
+    // backgroundMusic.sound.volume = 0.25;
+    // backgroundMusic.sound.loop = true;
+    // backgroundMusic.play();
 }
 
 // ===========================================================================
@@ -184,6 +184,7 @@ function saveScore() {
         saveButton.removeEventListener('click', saveScore);
 
         // Âm thanh
+        // backgroundMusic.pause()
         winSound = new sound("./audio/win.mp3")
         winSound.play()
     }
