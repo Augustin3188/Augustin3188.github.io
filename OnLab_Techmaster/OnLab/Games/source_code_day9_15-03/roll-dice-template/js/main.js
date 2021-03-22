@@ -32,7 +32,7 @@ let startSound
 let saveSound
 let winSound
 let changeSound
-let backgroundMusic
+// let backgroundMusic
 let rollSound
 
 // ===========================================================================
@@ -51,13 +51,14 @@ function sound(src) {
     this.stop = function () {
         this.sound.pause();
     }
+    console.log(this)
 }
 
 // 1. Tạo thuộc tính ban đầu cho game
 function init() {
     // Đổi tên
-    p1Name.innerText = 'Player 1';
-    p2Name.innerText = 'Player 2';
+    p1Name.innerText = 'Chíp';
+    p2Name.innerText = 'Lỳe';
 
     // Reset điểm
     p1Score.innerText = score;
@@ -83,6 +84,7 @@ function init() {
     // Âm thanh
     startSound = new sound("./audio/start.mp3");
     startSound.play();
+
 
     // Background music
     // backgroundMusic = new sound("./audio/bg.mp3");
@@ -156,6 +158,11 @@ rollButton.addEventListener('click', rollDice)
 // ===========================================================================
 // 5. Lưu trữ điểm và kiểm tra người thắng cuộc
 function saveScore() {
+    // Nếu ô input trống
+    if (finalScore.value == '') {
+        finalScore.value = 100
+    }
+
     // Lưu điểm
     document.getElementById(`score-${activePlayer}`).innerHTML = document.getElementById(`score-${activePlayer}`).innerHTML * 1 + document.getElementById(`current-${activePlayer}`).innerHTML * 1;
 
